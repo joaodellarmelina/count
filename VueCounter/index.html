@@ -1,0 +1,65 @@
+<!-- CDN VUE JS -->
+<script src="https://cdn.jsdelivr.net/npm/vue@3.4.21/dist/vue.global.min.js"></script>
+<!-- CDN TAILWIND CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<div>
+	<h1 class="text-4xl font-bold underline text-center">This is my first Vue JS + Tailwind CSS on Sublime Text</h1>
+	<p class="text-4xl text-center">It feel good.</p>
+
+	<div id="app" class="flex justify-center items-center m-12 gap-24 flex-row "> 
+		<button 
+		class="p-2 font-black text-2xl font-light bg-black text-white rounded-full" 
+		@click="number++">+</button>
+
+	 	<h1 class="text-4xl font-bold">{{ number }}</h1> 
+		<button 
+		class="p-2 font-black text-2xl font-light bg-black text-white rounded-full" 
+		@click="number--">
+		-</button>
+
+	</div>
+
+	<div class="flex justify-center flex-col gap-10">
+
+	
+		<div class="flex justify-center gap-10">
+		
+			<button 
+			class="p-2 font-black text-2xl font-light bg-black text-white rounded-full" 
+			v-on:click="reset">Reset</button>
+
+			<button 
+			class="p-2 font-black text-2xl font-light bg-black text-white rounded-full" 
+			@click="plusTen">+10</button>
+
+			<button 
+			class="p-2 font-black text-2xl font-light bg-black text-white rounded-full" 
+			v-on:click="lessTen">-10</button>
+		
+		</div>
+	
+	</div>
+
+</div>
+
+<script type="module">
+	const { createApp, ref} = Vue
+
+	createApp ({
+		setup() {
+			const number = ref(0)
+			function reset() {
+				number.value++
+			}
+
+			return {
+				number, 
+				reset
+			}
+		}
+		
+	}).mount(`#app`)
+
+
+</script>
